@@ -52,12 +52,12 @@
 
 ## XingOmni TeleOp (OmniOpModeX)
 
-| Input            | Function       | Up      | Down     | Left        | Right             |
-|  ---             | :---:          |:---:    |:---:     | :---:       | :---:             |
-| Joystick (left)  | POV drive      | Forward | Backward | Slide left  | Slide right       |
-| Joystick (right) | POV drive      | Forward | Backward | Slide left  | Slide right       |
-| Trigger          | Turn           |         |          | Clockwise   | Counterclockwise  |
-| DPad             | Slider/grabber | Open    | Close    | Spin        | Spin              |
+| Input            | Function            | Up      | Down     | Left        | Right             |
+|  ---             | :---:               |:---:    |:---:     | :---:       | :---:             |
+| Joystick (left)  | 1/2 power POV drive | Forward | Backward | Slide left  | Slide right       |
+| Joystick (right) | 1/2 power POV drive | Forward | Backward | Slide left  | Slide right       |
+| Trigger          | Turn                |         |          | Clockwise   | Counterclockwise  |
+| DPad             | Slider/grabber      | Open    | Close    | Spin        | Spin              |
 
 ### Directions
 
