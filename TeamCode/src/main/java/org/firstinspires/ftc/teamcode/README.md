@@ -2,7 +2,14 @@
 
 ## Stone Auto ()
 ## Foundation Auto ()
-## TeleOp (BasicOpMode)
+## XingMeca TeleOp (MecaOpModeX)
+
+| Input    | Function       | Up     | Down    | Left        | Right             | Both       |
+|  ---     | :---:          |:---:   |:---:    | :---:       | :---:             | :---:      |
+| Joystick | POV drive      |        |         | Half power  | Half power        | Full power |
+| Trigger  | Turn           |        |         | Clockwise   | Counterclockwise  |            |
+| DPad     | Foundation     | Deploy | Retract |             |                   |            |
+
 
 -
 
