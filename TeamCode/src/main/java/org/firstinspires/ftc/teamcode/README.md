@@ -1,35 +1,48 @@
-## The Giraffe
+# The Giraffe
 
-### Blah
-
-
-
-## The Wobbler
+## Blah
 
 
-### OmniOpMode(R/B)0 (Stone side)
 
-#### Starting position
+# The Wobbler
+
+
+## OmniOpMode(R/B)0 (Stone side)
+
+### Starting position
 * Face away from bridge.
 * Centered on the 2nd edge from the bridge.
 
-#### Directions
-1. Moves away from drivers to push the stone closest to the bridge away (impossible to get in auto).
+### Directions
+1. Move away from drivers to push the stone closest to the bridge away (impossible to get in auto).
 2. Move towards the drivers to be directly in front of the next stone. 
 3. Move forward. Grab the stone.
 4. Move towards the drivers.
 5. Move backwards to under the alliance skybridge.
-6. Turn 180deg. to put stone over the tape.
+6. Turn 180deg to put stone over the tape.
+7. Stay there.
 
 
-### OmniOpMode(R/B)1 (Foundation side)
+## OmniOpMode(R/B)1 (Foundation side)
 
-#### Starting position
+### Starting position
 
-#### Directions
+* Face away from drivers.
+* Centered on something.
+
+### Directions
+
+1. Wait 10s for other alliance to move foundation.
+2. Move forward to beyond foundation.
+3. Move away from bridge.
+4. Move backwards to push foundation back slightly.
+5. Move toward bridge.
+6. Move backwards towards driver.
+7. Move to under the bridge.
+8. Stay there.
 
 
-### OmniOpModeX (XingOmni TeleOp)
+## OmniOpModeX (XingOmni TeleOp)
 
 | Input    | Function       | Up   | Down  | Left        | Right             | Both       |
 |  ---     | :---:          |:---: |:---:  | :---:       | :---:             | :---:      |
@@ -37,10 +50,9 @@
 | Trigger  | Turn           |      |       | Clockwise   | Counterclockwise  |            |
 | DPad     | Slider/grabber | Open | Close | Spin        | Spin              |            |
 
+### Directions
 
-#### Directions
-
-##### TELEOP
+#### TELEOP
 
 1. Move current stone to foundation & stack.
 2. Get 2nd stone.
@@ -48,7 +60,7 @@
 4. Get 3nd stone.
 5. Move 3nd stone under the alliance skybridge to foundation & stack.
 
-##### ENDGAME
+#### ENDGAME
 
 1. Get capstone.
 2. Move capstone to foundation & stack.
