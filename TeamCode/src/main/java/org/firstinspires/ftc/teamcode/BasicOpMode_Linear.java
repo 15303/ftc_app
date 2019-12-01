@@ -23,8 +23,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
   private DcMotor armV = null;
 
   private CRServo foundation = null;
-  private CRServo rotate = null;
-  private CRCerSergrab = null;
+  private CRServo wrist = null;
+  private CRServo grabberer = null;
 
   double driveRht = 0;
   double driveFwd = 0;
@@ -47,8 +47,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
     armV = hardwareMap.get(DcMotor.class, "armV");
 
     foundation = hardwareMap.get(CRServo.class, "foundation");
-    rotate = hardwareMap.get(CRServo.class, "rotate");
-    grab = hardwareMap.get(CRServo.class, "grab");
+    wrist = hardwareMap.get(CRServo.class, "wrist");
+    grabber = hardwareMap.get(CRServo.class, "grabber");
 
     // Most robots need the motor on one side to be reversed to drive forward
     // Reverse the motor that runs backwards when connected directly to the battery
@@ -103,16 +103,16 @@ public class BasicOpMode_Linear extends LinearOpMode {
       armH.setPower(gamepad2.left_stick_x);
       armV.setPower(gamepad2.left_stick_y);
 
-      //rotate
-      rotate.setPower(gamepad2.right_stick_y);
+      //wrist
+      wrist.setPower(gamepad2.right_stick_y);
 
-      //grab
+      //grabber
       if(gamepad2.dpad_down) {
-        grab.setPower(1);
+        grabber.setPower(1);
       }else if(gamepad2.dpad_up) {
-        grab.setPower(-1);
+        grabber.setPower(-1);
       }else if(gamepad2.left_trigger > 0.05 || gamepad2.right_trigger > 0.05) {
-        grab.setPower(0);
+        grabber.setPower(0);
       }
 
       telemetry.addData("toehnu", armH.getCurrentPosition());
