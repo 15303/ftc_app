@@ -7,7 +7,7 @@
 # The Wobbler
 
 
-## OmniOpMode(R/B)0 (Stone side)
+## Stone Auto (...0)
 
 ### Starting position
 * Face away from bridge.
@@ -23,7 +23,7 @@
 7. Stay there.
 
 
-## OmniOpMode(R/B)1 (Foundation side)
+## Foundation Auto (...1)
 
 ### Starting position
 
@@ -42,7 +42,7 @@
 8. Stay there.
 
 
-## OmniOpModeX (XingOmni TeleOp)
+## XingOmni TeleOp (OmniOpModeX)
 
 | Input    | Function       | Up   | Down  | Left        | Right             | Both       |
 |  ---     | :---:          |:---: |:---:  | :---:       | :---:             | :---:      |
