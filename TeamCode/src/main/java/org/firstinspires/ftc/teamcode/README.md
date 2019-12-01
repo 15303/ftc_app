@@ -1,13 +1,14 @@
 # The Giraffe
 
-## Blah
+## Stone Auto ()
+## Foundation Auto ()
+## TeleOp (BasicOpMode)
 
-
+-
 
 # The Wobbler
 
-
-## Stone Auto (...0)
+## Stone Auto (OmniOpMode.0)
 
 ### Starting position
 * Face away from bridge.
@@ -23,7 +24,7 @@
 7. Stay there.
 
 
-## Foundation Auto (...1)
+## Foundation Auto (OmniOpMode.1)
 
 ### Starting position
 
