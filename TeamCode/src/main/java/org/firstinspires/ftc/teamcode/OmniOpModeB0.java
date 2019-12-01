@@ -29,10 +29,10 @@ public class OmniOpModeR0 extends LinearOpMode {
   
   private void driveIn(double force,int time){
     
-    driveNW.setPower(-force);
-    driveNE.setPower(-force);
-    driveSE.setPower(force);
-    driveSW.setPower(force);
+    driveNW.setPower(force);
+    driveNE.setPower(force);
+    driveSE.setPower(-force);
+    driveSW.setPower(-force);
     
     sleep(time);
   }
@@ -118,7 +118,7 @@ public class OmniOpModeR0 extends LinearOpMode {
 
     grab(true);
 
-    driveCC(1,100);
+    driveCC(1,-100);
 
     grab(true);
     
