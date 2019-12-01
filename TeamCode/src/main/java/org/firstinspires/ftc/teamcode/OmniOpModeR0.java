@@ -13,6 +13,8 @@ import com.qualcomm.robotcore.util.Range;
 //@Disabled
 
 public class OmniOpModeR0 extends LinearOpMode {
+  
+  boolean isRed = true; //IMPORTANT
 
   private ElapsedTime runtime = new ElapsedTime();
   private DcMotor driveNW = null;
@@ -22,47 +24,61 @@ public class OmniOpModeR0 extends LinearOpMode {
   private DcMotor lslider = null;
   private Servo grabber = null;
   
-  double driveIn = 0;
+  double driveAwy = 0;
   double driveFwd = 0;
 
   boolean isGrabbing = false;
   
-  private void driveIn(double force,int time){
+  private void driveAwy(double force,int time){
     
-    driveNW.setPower(-force);
-    driveNE.setPower(-force);
-    driveSE.setPower(force);
-    driveSW.setPower(force);
+    // drive away from drivers
+    
+    if(isRed){
+      force = -force;
+    }
+    
+    driveNW.setPower( force);
+    driveNE.setPower( force);
+    driveSE.setPower(-force);
+    driveSW.setPower(-force);
     
     sleep(time);
+    
   }
   
   private void driveFwd(double force,int time){
     
+    // drive toward stones
+    
     driveNW.setPower(-force);
-    driveNE.setPower(force);
-    driveSE.setPower(force);
+    driveNE.setPower( force);
+    driveSE.setPower( force);
     driveSW.setPower(-force);
     
     sleep(time);
+    
   }
   
-  private void driveCC(double force,int time){
+  private void driveSpn(double force,int time){
     
-    driveNW.setPower(force);
-    driveNE.setPower(force);
-    driveSE.setPower(force);
-    driveSW.setPower(force);
+    // spin clockwise red, cc blue
+
+    if(isRed){
+      force = -force;
+    }
+    
+    driveNW.setPower( force);
+    driveNE.setPower( force);
+    driveSE.setPower( force);
+    driveSW.setPower( force);
     
     sleep(time);
+    
   }
   
   private void driveRst(){
     
-    driveNW.setPower(0);
-    driveNE.setPower(0);
-    driveSE.setPower(0);
-    driveSW.setPower(0);
+    driveFwd(0,0);
     
   }
 
@@ -75,40 +91,42 @@ public class OmniOpModeR0 extends LinearOpMode {
     }
     
     sleep(1000);
+    
   }
   
   @Override
   public void runOpMode() {
-    telemetry.addData("Status", "Initialized");
-    telemetry.update();
-
-    driveNW = hardwareMap.get(DcMotor.class, "driveNW");
-    driveNE  = hardwareMap.get(DcMotor.class, "driveNE");
-    driveSE = hardwareMap.get(DcMotor.class, "driveSE");
-    driveSW = hardwareMap.get(DcMotor.class, "driveSW");
-    lslider = hardwareMap.get(DcMotor.class, "lslider");
-    grabber = hardwareMap.get(Servo.class, "grabber");
-
-    driveNW.setDirection(DcMotor.Direction.FORWARD);
-    driveNE.setDirection(DcMotor.Direction.FORWARD);
-    driveSE.setDirection(DcMotor.Direction.FORWARD);
-    driveSW.setDirection(DcMotor.Direction.FORWARD);
+    
+    isRed ? telemetry.addData( "Status    " , "R0 Initialized" )
+          : telemetry.addData( "Status    " , "B0 Initialized" );
+            telemetry.update();
+          
+    driveNW = hardwareMap.get( DcMotor.class, "driveNW" );
+    driveNE = hardwareMap.get( DcMotor.class, "driveNE" );
+    driveSE = hardwareMap.get( DcMotor.class, "driveSE" );
+    driveSW = hardwareMap.get( DcMotor.class, "driveSW" );
+    slider  = hardwareMap.get( DcMotor.class, "slider"  );
+    grabber = hardwareMap.get( Servo.class  , "grabber" );
 
     waitForStart();
     runtime.reset();
 
-    driveIn(1,1100);
+    isRed ? telemetry.addData( "Status    " , "R0 Running" )
+          : telemetry.addData( "Status    " , "B0 Running" );
+            telemetry.update();
+
+    driveAwy(1,1100);
 
     grab(false);
 
-    driveIn(-1,550);
+    driveAwy(-1,550);
 
     driveFwd(1,400);
     driveRst();
     
     grab(true);
 
-    driveIn(-1,500);
+    driveAwy(-1,500);
     driveRst();
 
     grab(true);
@@ -118,10 +136,11 @@ public class OmniOpModeR0 extends LinearOpMode {
 
     grab(true);
 
-    driveCC(1,100);
+    driveSpn(1,100);
 
     grab(true);
     
     driveRst();
+    
   }
 }

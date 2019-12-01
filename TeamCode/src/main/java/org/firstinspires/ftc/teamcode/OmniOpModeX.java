@@ -14,26 +14,26 @@ import com.qualcomm.robotcore.util.Range;
 public class OmniOpModeX extends LinearOpMode {
 
   private ElapsedTime runtime = new ElapsedTime();
-  
+
   private DcMotor driveNW = null;
   private DcMotor driveNE = null;
   private DcMotor driveSE = null;
   private DcMotor driveSW = null;
-  
+
   private DcMotor slider  = null;
   private Servo   grabber = null;
-  
+
   double driveRht   = 0;
   double driveFwd   = 0;
   double driveC     = 0;
   
   double sliderUp   = 0;
   double grabberPos = 0;
-  
+
   @Override
   public void runOpMode() {
-    
-    telemetry.addData( "Status    " , "X Initialized"  );
+
+    telemetry.addData( "Status    " , "X Initialized" );
     telemetry.update();
 
     driveNW = hardwareMap.get( DcMotor.class, "driveNW" );
@@ -43,20 +43,15 @@ public class OmniOpModeX extends LinearOpMode {
     slider  = hardwareMap.get( DcMotor.class, "slider"  );
     grabber = hardwareMap.get( Servo.class  , "grabber" );
 
-    driveNW.setDirection(DcMotor.Direction.FORWARD);
-    driveNE.setDirection(DcMotor.Direction.FORWARD);
-    driveSE.setDirection(DcMotor.Direction.FORWARD);
-    driveSW.setDirection(DcMotor.Direction.FORWARD);
-
     waitForStart();
     runtime.reset();
 
     while (opModeIsActive()) {
 
       if(gamepad1.x||gamepad2.x){
-        
+
         telemetry.addData( "Status    " , "X Panic"    );
-        
+
         //lock
 
         driveNW.setPower(  1 );
@@ -103,7 +98,7 @@ public class OmniOpModeX extends LinearOpMode {
       telemetry.addData( "SliderUp   " , sliderUp    );
       telemetry.addData( "GrabberPos " , grabberPos  );
       telemetry.update();
-      
+
     }
   }
 }
