@@ -80,8 +80,8 @@ public class MecaOpModeX extends LinearOpMode {
     // run until the end of the match (driver presses STOP)
     while (opModeIsActive()) {
 
-      driveRht = - Math.pow( ( gamepad1.left_stick_x + gamepad1.right_stick_x + gamepad2.left_stick_x + gamepad2.right_stick_x ) / 2 ) , 3 );
-      driveFwd = - Math.pow( ( gamepad1.left_stick_y + gamepad1.right_stick_y + gamepad2.left_stick_y + gamepad2.right_stick_y ) / 2 ) , 3 );
+      driveRht = - Math.pow( ( gamepad1.left_stick_x + gamepad2.left_stick_x ) /2 , 3 ) - Math.pow( ( gamepad1.right_stick_x + gamepad2.right_stick_x ) / 2 , 3 );
+      driveFwd = - Math.pow( ( gamepad1.left_stick_y + gamepad2.left_stick_y ) /2 , 3 ) - Math.pow( ( gamepad1.right_stick_y + gamepad2.right_stick_y ) / 2 , 3 );
       driveC   =   Math.pow( ( gamepad1.left_trigger - gamepad1.right_trigger ) , 3 );
 
       //mecanums
