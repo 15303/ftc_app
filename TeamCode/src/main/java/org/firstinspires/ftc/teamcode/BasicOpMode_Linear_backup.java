@@ -54,7 +54,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Driver Controlled", group="Linear Opmode")
 //@Disabled
-public class BasicOpMode_Linear extends LinearOpMode {
+public class BasicOpMode_Linear_backup extends LinearOpMode {
 
     // Declare OpMode members.
   private ElapsedTime runtime = new ElapsedTime();
