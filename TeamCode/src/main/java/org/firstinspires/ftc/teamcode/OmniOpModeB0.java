@@ -128,7 +128,7 @@ public class OmniOpModeB0 extends LinearOpMode {
 
     grab(true);
 
-    driveSpn(1,100);
+    driveSpn(-1,100);
 
     grab(true);
 
