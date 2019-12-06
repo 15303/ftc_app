@@ -24,7 +24,7 @@ public class MecaOpModeX extends LinearOpMode {
 
   private CRServo foundation = null;
   private CRServo wrist = null;
-  private CRServo grabberer = null;
+  private CRServo grabber = null;
 
   double driveRht = 0;
   double driveFwd = 0;
@@ -92,9 +92,9 @@ public class MecaOpModeX extends LinearOpMode {
       right_back.setPower(  driveFwd + driveRht - driveC);
 
       //foundation
-      gamepad1.dpad_down ? foundation.setPower(-0.5)
-      : gamepad1.dpad_up ? foundation.setPower(0.5)
-      : foundation.setPower(0);
+//      gamepad1.dpad_down ? foundation.setPower(-0.5)
+//      : gamepad1.dpad_up ? foundation.setPower(0.5)
+//      : foundation.setPower(0);
 
       //arm movement
       armH.setPower(gamepad2.left_stick_x);
@@ -104,9 +104,9 @@ public class MecaOpModeX extends LinearOpMode {
       wrist.setPower(gamepad2.right_stick_y);
 
       //grabber
-      gamepad2.dpad_down ? grabber.setPower(1)
-      : gamepad2.dpad_up ? grabber.setPower(-1)
-      : (gamepad2.left_trigger > 0.05 || gamepad2.right_trigger > 0.05) ? grabber.setPower(0);
+//      gamepad2.dpad_down ? grabber.setPower(1)
+//      : gamepad2.dpad_up ? grabber.setPower(-1)
+//      : (gamepad2.left_trigger > 0.05 || gamepad2.right_trigger > 0.05) ? grabber.setPower(0);
     }
   }
 }

@@ -24,7 +24,7 @@ public class BasicOpMode_Linear_backup extends LinearOpMode {
 
   private CRServo foundation = null;
   private CRServo wrist = null;
-  private CRServo grabberer = null;
+  private CRServo grabber = null;
 
   double driveRht = 0;
   double driveFwd = 0;

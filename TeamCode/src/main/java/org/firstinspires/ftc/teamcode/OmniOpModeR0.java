@@ -21,7 +21,7 @@ public class OmniOpModeR0 extends LinearOpMode {
   private DcMotor driveNE = null;
   private DcMotor driveSE = null;
   private DcMotor driveSW = null;
-  private DcMotor lslider = null;
+  private DcMotor slider = null;
   private Servo grabber = null;
   
   double driveAwy = 0;
@@ -96,11 +96,7 @@ public class OmniOpModeR0 extends LinearOpMode {
   
   @Override
   public void runOpMode() {
-    
-    isRed ? telemetry.addData( "Status    " , "R0 Initialized" )
-          : telemetry.addData( "Status    " , "B0 Initialized" );
-            telemetry.update();
-          
+
     driveNW = hardwareMap.get( DcMotor.class, "driveNW" );
     driveNE = hardwareMap.get( DcMotor.class, "driveNE" );
     driveSE = hardwareMap.get( DcMotor.class, "driveSE" );
@@ -110,10 +106,6 @@ public class OmniOpModeR0 extends LinearOpMode {
 
     waitForStart();
     runtime.reset();
-
-    isRed ? telemetry.addData( "Status    " , "R0 Running" )
-          : telemetry.addData( "Status    " , "B0 Running" );
-            telemetry.update();
 
     driveAwy(1,1100);
 
