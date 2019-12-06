@@ -9,12 +9,12 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="R0 - AutoOmni", group="Linear Opmode")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="B0 - AutoOmni", group="Linear Opmode")
 //@Disabled
 
-public class OmniOpModeR0 extends LinearOpMode {
+public class OmniOpModeB0 extends LinearOpMode {
   
-  boolean isRed = true; //IMPORTANT
+  boolean isRed = false; //IMPORTANT
 
   private ElapsedTime runtime = new ElapsedTime();
   private DcMotor driveNW = null;

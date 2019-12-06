@@ -9,9 +9,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name="Driver Controlled", group="Linear Opmode")
+@TeleOp(name="XingMeca", group="Linear Opmode")
 //@Disabled
-public class BasicOpMode_Linear_backup extends LinearOpMode {
+public class MecaOpModeX extends LinearOpMode {
 
   private ElapsedTime runtime = new ElapsedTime();
   private DcMotor left_front = null;
@@ -73,31 +73,28 @@ public class BasicOpMode_Linear_backup extends LinearOpMode {
 
 
     // Wait for the game to start (driver presses PLAY)
+
     waitForStart();
     runtime.reset();
-    int outpos = 0;
+
     // run until the end of the match (driver presses STOP)
     while (opModeIsActive()) {
 
-      driveRht = - ( gamepad1.left_stick_x + gamepad1.right_stick_x + gamepad2.left_stick_x + gamepad2.right_stick_x ) / 2.5;
-      driveFwd = - ( gamepad1.left_stick_y + gamepad1.right_stick_y + gamepad2.left_stick_y + gamepad2.right_stick_y ) / 4;
-      driveC = gamepad1.left_trigger - gamepad1.right_trigger;
+      driveRht = - Math.pow( ( gamepad1.left_stick_x + gamepad2.left_stick_x ) /2 , 3 ) - Math.pow( ( gamepad1.right_stick_x + gamepad2.right_stick_x ) / 2 , 3 );
+      driveFwd = - Math.pow( ( gamepad1.left_stick_y + gamepad2.left_stick_y ) /2 , 3 ) - Math.pow( ( gamepad1.right_stick_y + gamepad2.right_stick_y ) / 2 , 3 );
+      driveC   =   Math.pow( ( gamepad1.left_trigger - gamepad1.right_trigger ) , 3 );
 
       //mecanums
       
-      left_front.setPower(  driveFwd + (driveRht*2) + driveC);
-      left_back.setPower(   driveFwd - (driveRht*1) + driveC);
-      right_front.setPower( driveFwd - (driveRht*1) - driveC);
-      right_back.setPower(  driveFwd + (driveRht*2) - driveC);
+      left_front.setPower(  driveFwd + driveRht + driveC);
+      left_back.setPower(   driveFwd - driveRht + driveC);
+      right_front.setPower( driveFwd - driveRht - driveC);
+      right_back.setPower(  driveFwd + driveRht - driveC);
 
       //foundation
-      if(gamepad1.dpad_up) {
-        foundation.setPower(0.5);
-      }else if(gamepad1.dpad_down) {
-        foundation.setPower(-0.5);
-      }else{
-        foundation.setPower(0);
-      }
+      gamepad1.dpad_down ? foundation.setPower(-0.5)
+      : gamepad1.dpad_up ? foundation.setPower(0.5)
+      : foundation.setPower(0);
 
       //arm movement
       armH.setPower(gamepad2.left_stick_x);
@@ -107,18 +104,9 @@ public class BasicOpMode_Linear_backup extends LinearOpMode {
       wrist.setPower(gamepad2.right_stick_y);
 
       //grabber
-      if(gamepad2.dpad_down) {
-        grabber.setPower(1);
-      }else if(gamepad2.dpad_up) {
-        grabber.setPower(-1);
-      }else if(gamepad2.left_trigger > 0.05 || gamepad2.right_trigger > 0.05) {
-        grabber.setPower(0);
-      }
-
-      telemetry.addData("toehnu", armH.getCurrentPosition());
-      telemetry.addData("runtime", getRuntime());
-      telemetry.addData("outpos", outpos);
-      telemetry.update();
+      gamepad2.dpad_down ? grabber.setPower(1)
+      : gamepad2.dpad_up ? grabber.setPower(-1)
+      : (gamepad2.left_trigger > 0.05 || gamepad2.right_trigger > 0.05) ? grabber.setPower(0);
     }
   }
 }
