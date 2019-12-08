@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.Range;
 @TeleOp(name="2: XingOmni", group="Linear Opmode")
 //@Disabled
 
-public class R2_OmniOpModeX extends LinearOpMode {
+public class OmniOpModeX extends LinearOpMode {
 
   private ElapsedTime runtime = new ElapsedTime();
 
