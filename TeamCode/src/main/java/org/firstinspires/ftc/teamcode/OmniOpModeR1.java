@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.Range;
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="2: R1 - AutoOmni", group="Linear Opmode")
 //@Disabled
 
-public class R2_OmniOpModeR1 extends LinearOpMode {
+public class OmniOpModeR1 extends LinearOpMode {
 
   boolean isRed = true; //IMPORTANT
 
