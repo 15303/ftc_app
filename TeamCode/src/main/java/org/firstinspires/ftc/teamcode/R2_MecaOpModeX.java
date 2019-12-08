@@ -9,9 +9,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name="XingMeca", group="Linear Opmode")
+@TeleOp(name="2: XingMeca", group="Linear Opmode")
 //@Disabled
-public class MecaOpModeX extends LinearOpMode {
+public class R2_MecaOpModeX extends LinearOpMode {
 
   private ElapsedTime runtime = new ElapsedTime();
   private DcMotor left_front = null;

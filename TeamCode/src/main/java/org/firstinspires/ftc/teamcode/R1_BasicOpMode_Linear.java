@@ -49,9 +49,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Driver Controlled new", group="Linear Opmode")
+@TeleOp(name="1: Driver Controlled new", group="Linear Opmode")
 //@Disabled
-public class BasicOpMode_Linear_new extends LinearOpMode {
+public class R1_BasicOpMode_Linear extends LinearOpMode {
 
     // Declare OpMode members.
   private ElapsedTime runtime = new ElapsedTime();

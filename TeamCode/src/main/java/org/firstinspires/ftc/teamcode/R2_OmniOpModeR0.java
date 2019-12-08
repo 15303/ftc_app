@@ -9,11 +9,11 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="R1 - AutoOmni", group="Linear Opmode")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="2: R0 - AutoOmni", group="Linear Opmode")
 //@Disabled
 
-public class OmniOpModeR1 extends LinearOpMode {
-
+public class R2_OmniOpModeR0 extends LinearOpMode {
+  
   boolean isRed = true; //IMPORTANT
 
   private ElapsedTime runtime = new ElapsedTime();
@@ -23,77 +23,77 @@ public class OmniOpModeR1 extends LinearOpMode {
   private DcMotor driveSW = null;
   private DcMotor slider = null;
   private Servo grabber = null;
-
-  double driveTwd = 0;
+  
+  double driveAwy = 0;
   double driveFwd = 0;
 
   boolean isGrabbing = false;
-
-  private void driveTwd(double force,int time){
-
-    // drive toward bridge
-
+  
+  private void driveAwy(double force,int time){
+    
+    // drive away from drivers
+    
     if(isRed){
       force = -force;
     }
-
+    
     driveNW.setPower( force);
     driveNE.setPower( force);
     driveSE.setPower(-force);
     driveSW.setPower(-force);
-
+    
     sleep(time);
-
+    
   }
-
+  
   private void driveFwd(double force,int time){
-
+    
     // drive toward stones
-
+    
     driveNW.setPower(-force);
     driveNE.setPower( force);
     driveSE.setPower( force);
     driveSW.setPower(-force);
-
+    
     sleep(time);
-
+    
   }
-
+  
   private void driveSpn(double force,int time){
-
+    
     // spin clockwise red, cc blue
 
     if(isRed){
       force = -force;
     }
-
+    
     driveNW.setPower( force);
     driveNE.setPower( force);
     driveSE.setPower( force);
     driveSW.setPower( force);
-
+    
     sleep(time);
-
+    
   }
-
+  
   private void driveRst(){
-
+    
     driveFwd(0,0);
-
+    
   }
 
   private void grab(boolean shouldGrab){
-
+    
     if(shouldGrab){
       grabber.setPosition(0.7);
     }else{
       grabber.setPosition(0);
     }
-
+    
     sleep(1000);
-
+    
   }
-
+  
   @Override
   public void runOpMode() {
 
@@ -107,9 +107,32 @@ public class OmniOpModeR1 extends LinearOpMode {
     waitForStart();
     runtime.reset();
 
-    driveFwd(1,1100);
+    driveAwy(1,1100);
+
+    grab(false);
+
+    driveAwy(-1,550);
+
+    driveFwd(1,400);
+    driveRst();
     
+    grab(true);
+
+    driveAwy(-1,500);
     driveRst();
 
+    grab(true);
+
+    driveFwd(-1,650);
+    driveRst();
+
+    grab(true);
+
+    driveSpn(-1,100);
+
+    grab(true);
+    
+    driveRst();
+    
   }
 }

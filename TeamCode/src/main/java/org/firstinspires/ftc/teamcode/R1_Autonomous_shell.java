@@ -50,9 +50,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Autonomous shell", group="Linear Opmode")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="1: Autonomous shell", group="Linear Opmode")
 //@Disabled
-public class Autonomourcgfys extends LinearOpMode {
+public class R1_Autonomous_shell extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
