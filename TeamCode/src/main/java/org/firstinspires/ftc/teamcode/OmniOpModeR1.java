@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="2: R1 - AutoOmni", group="Linear Opmode")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="AutoOmni-R-1", group="Linear Opmode")
 //@Disabled
 
 public class OmniOpModeR1 extends LinearOpMode {
