@@ -9,10 +9,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="AutoOmni-R-0", group="Linear Opmode")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="OmniAuto-R-0", group="Linear Opmode")
 //@Disabled
 
-public class R2_OmniOpModeR0 extends LinearOpMode {
+public class OmniOpModeR0 extends LinearOpMode {
   
   boolean isRed = true; //IMPORTANT
 
